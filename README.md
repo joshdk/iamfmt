@@ -1,4 +1,7 @@
-[![License](https://img.shields.io/github/license/joshdk/tfbundle.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/github/license/joshdk/iamfmt.svg)](https://opensource.org/licenses/MIT)
+[![GoDoc](https://godoc.org/github.com/joshdk/iamfmt?status.svg)](https://godoc.org/github.com/joshdk/iamfmt)
+[![Go Report Card](https://goreportcard.com/badge/github.com/joshdk/iamfmt)](https://goreportcard.com/report/github.com/joshdk/iamfmt)
+[![CircleCI](https://circleci.com/gh/joshdk/iamfmt.svg?&style=shield)](https://circleci.com/gh/joshdk/iamfmt/tree/master)
 
 # IAMFmt
 
