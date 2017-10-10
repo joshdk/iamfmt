@@ -9,8 +9,8 @@ import (
 )
 
 type Policy struct {
-	Version    string      `json:"Version"`
-	Statements []Statement `json:"Statement"`
+	Version    string     `json:"Version"`
+	Statements Statements `json:"Statement"`
 }
 
 type Statement struct {
@@ -18,6 +18,30 @@ type Statement struct {
 	Actions    Actions   `json:"Action"`
 	Resources  Resources `json:"Resource"`
 	Principals Principal `json:"Principal"`
+}
+
+type Statements []Statement
+
+func (statements *Statements) UnmarshalJSON(body []byte) (err error) {
+
+	var (
+		stmts []Statement
+		stmt  Statement
+	)
+
+	// If the value is a list of Statement, then return that list of Statement
+	if err = json.Unmarshal(body, &stmts); err == nil {
+		*statements = stmts
+		return
+	}
+
+	// If the value is a single Statement, then return a list containing only that Statement
+	if err = json.Unmarshal(body, &stmt); err == nil {
+		*statements = []Statement{stmt}
+		return
+	}
+
+	return
 }
 
 type Principal struct {
