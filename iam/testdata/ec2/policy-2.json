@@ -1,0 +1,26 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "ec2:GetConsole*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "ec2:RunInstances",
+      "Resource": [
+        "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:subnet/subnet-<SUBNET-ID>",
+        "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:network-interface/*",
+        "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:instance/*",
+        "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:volume/*",
+        "arn:aws:ec2:<REGION>::image/ami-*",
+        "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:key-pair/*",
+        "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:security-group/*"
+      ]
+    }
+  ]
+}

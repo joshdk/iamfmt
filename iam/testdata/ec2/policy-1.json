@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachVolume",
+        "ec2:DetachVolume"
+      ],
+      "Resource": "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:instance/*",
+      "Condition": {"StringEquals": {"ec2:ResourceTag/department": "dev"}}
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachVolume",
+        "ec2:DetachVolume"
+      ],
+      "Resource": "arn:aws:ec2:<REGION>:<ACCOUNTNUMBER>:volume/*",
+      "Condition": {"StringEquals": {"ec2:ResourceTag/volume_user": "${aws:username}"}}
+    }
+  ]
+}
